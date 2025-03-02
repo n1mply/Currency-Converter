@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  background: #e9ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.currency-form {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.currency-form:hover {
+  transform: scale(1.02);
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.currency-group {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 8px;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.currency-group:hover {
+  background: #e9ecef;
+}
+
+.currency-group input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+}
+
+.currency-group input::placeholder {
+  color: #adb5bd;
+}
+
+.currency-select {
+  flex: 0.5;
+}
+
+.currency-img {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.currency-img img {
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+  transition: transform 0.2s ease-in-out;
+}
+
+.currency-img img:active {
+    transition: scale 0.3s ease;
+    scale: 1.1;    
+}
+
+.currency-img img:hover {
+  transform: rotate(180deg);
+}
