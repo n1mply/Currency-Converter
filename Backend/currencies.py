@@ -1,6 +1,6 @@
 import freecurrencyapi
 
-client = freecurrencyapi.Client('fca_live_7k0b0ox5cPrBT6BhX1Jk25peBMRMp1WypfSUwmND')
+client = freecurrencyapi.Client('freecurrencyapikey')
 
 def get_currencies(currencies: list):
     result = client.currencies(currencies=currencies)
