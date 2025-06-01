@@ -21,10 +21,18 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+<<<<<<< HEAD
+=======
+    "autoprefixer": "^10.4.20",
+>>>>>>> c70eebe7ec85994dfc1334383749537a3917ac1d
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+<<<<<<< HEAD
+=======
+    "postcss": "^8.5.3",
+>>>>>>> c70eebe7ec85994dfc1334383749537a3917ac1d
     "vite": "^6.2.0"
   }
 }
