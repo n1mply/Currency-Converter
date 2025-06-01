@@ -70,57 +70,61 @@ export default function CurrencyForm() {
 
     const roundedValue = secondValue && firstValue ? (secondValue * firstValue).toFixed(1) : '';
 
-    // Функция для обмена валют
     const handleExchange = () => {
         setIsReverse(!isReverse);
-        // Меняем местами валюты
         const temp = firstSelectedCurrency;
         setFirstSelectedCurrency(secondSelectedCurrency);
         setSecondSelectedCurrency(temp);
     };
 
     return (
-        <div className='currency-form'>
-            <h1>Choose currencies</h1>
-            <div className='currency-group'>
-                <input
-                    type="text"
-                    placeholder="Enter amount"
-                    value={firstValue}
-                    onChange={(event) => setFirstValue(event.target.value)}
-                    className="currency-input"
-                />
-                <Select
-                    id="1"
-                    className='currency-select'
-                    options={currencies}
-                    value={currencies.find((c) => c.value === firstSelectedCurrency)} // Используем текущее значение
-                    onChange={(selected) => setFirstSelectedCurrency(selected?.value || '')}
-                    styles={customStyles}
-                />
+            <div className="bg-white p-5 w-[90%] max-w-[500px] rounded-2xl shadow-xl transition-transform duration-200 hover:scale-105">
+                <h1 className="text-xl font-semibold text-gray-800 mb-4">Choose currencies</h1>
+                <div className="flex items-center bg-gray-100 rounded-xl p-2 gap-2 transition-colors duration-200 hover:bg-gray-200">
+                    <input
+                        type="text"
+                        placeholder="Enter amount"
+                        value={firstValue}
+                        onChange={(event) => setFirstValue(event.target.value)}
+                        className="flex-1 p-3 border-none rounded-lg bg-transparent text-base outline-none"
+                    />
+                    <Select
+                        id="1"
+                        className="w-1/4"
+                        options={currencies}
+                        value={currencies.find((c) => c.value === firstSelectedCurrency)}
+                        onChange={(selected) => setFirstSelectedCurrency(selected?.value || '')}
+                        styles={customStyles}
+                        placeholder={'–/–'}
+                    />
+                </div>
+                <div className="my-2 flex justify-center">
+                    <img 
+                        src={exchange} 
+                        alt="Exchange" 
+                        className="w-10 h-10 opacity-80 transition-transform duration-200 hover:rotate-180 active:scale-110"
+                        onClick={handleExchange}
+                    />
+                </div>
+                <div className="flex items-center bg-gray-100 rounded-xl p-2 gap-2 transition-colors duration-200 hover:bg-gray-200">
+                    <input
+                        type="text"
+                        placeholder="Result"
+                        value={roundedValue || ''}
+                        onChange={(event) => setSecondValue(event.target.value)}
+                        readOnly
+                        className="flex-1 p-3 border-none rounded-lg bg-transparent text-base outline-none"
+                    />
+                    <Select
+                        id="2"
+                        className="w-1/4"
+                        options={currencies}
+                        value={currencies.find((c) => c.value === secondSelectedCurrency)}
+                        onChange={(selected) => setSecondSelectedCurrency(selected?.value || '')}
+                        styles={customStyles}
+                        placeholder={'–/–'}
+                    />
+                </div>
             </div>
-            <div className='currency-img'>
-                <img src={exchange} alt="=" onClick={handleExchange} />
-            </div>
-
-            <div className='currency-group'>
-                <input
-                    type="text"
-                    placeholder="Result"
-                    value={roundedValue || ''}
-                    onChange={(event) => setSecondValue(event.target.value)}
-                    readOnly
-                    className="currency-input"
-                />
-                <Select
-                    id="2"
-                    className='currency-select'
-                    options={currencies}
-                    value={currencies.find((c) => c.value === secondSelectedCurrency)} // Используем текущее значение
-                    onChange={(selected) => setSecondSelectedCurrency(selected?.value || '')}
-                    styles={customStyles}
-                />
-            </div>
-        </div>
     );
 }
